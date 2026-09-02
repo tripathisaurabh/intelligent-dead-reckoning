@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Raw and processed datasets
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Large model files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.tflite
+
+# Generated results
+results/models/*
+!results/models/.gitkeep
+results/plots/*
+!results/plots/.gitkeep
+results/metrics/*
+!results/metrics/.gitkeep
+results/experiments/*
+!results/experiments/.gitkeep
+results/phase1/*
+!results/phase1/.gitkeep
+
+# Local logs / temp
+*.log
+tmp/
+temp/
