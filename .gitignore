@@ -40,8 +40,14 @@ results/metrics/*
 !results/metrics/.gitkeep
 results/experiments/*
 !results/experiments/.gitkeep
+
+# Phase 1 outputs: ignore by default, but keep selected evidence for team/presentation
 results/phase1/*
 !results/phase1/.gitkeep
+!results/phase1/timestamp_analysis/
+!results/phase1/timestamp_analysis/**
+!results/phase1/signal_overview/
+!results/phase1/signal_overview/**
 
 # Local logs / temp
 *.log
