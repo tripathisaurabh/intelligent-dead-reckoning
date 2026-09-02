@@ -1,0 +1,16 @@
+sampling:
+  target_rate_hz: null   # Set only after measuring the real dataset rate.
+
+filters:
+  accelerometer_cutoff_hz: 15.0
+  gyroscope_cutoff_hz: 10.0
+  order: 4
+
+frames:
+  navigation_frame: ENU
+  vehicle_frame:
+    x: forward
+    y: lateral
+    z: up
+
+gravity_mps2: 9.80665
