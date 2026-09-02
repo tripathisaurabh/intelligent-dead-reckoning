@@ -1,0 +1,9 @@
+numpy
+pandas
+scipy
+matplotlib
+pyyaml
+scikit-learn
+pytest
+filterpy
+ahrs
