@@ -1,0 +1,54 @@
+{
+  "file": "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/M (Driver B)/S-M.csv",
+  "rows": 105974,
+  "time_column": " TIME SINCE START (ms)",
+  "gap_threshold_seconds": 0.25,
+  "sessions": [
+    {
+      "session_id": 1,
+      "start_row_zero_based": 0,
+      "end_row_zero_based_inclusive": 44225,
+      "rows": 44226,
+      "start_time_ms": 4227.0,
+      "end_time_ms": 4426727.0,
+      "duration_seconds": 4422.5,
+      "median_dt_ms": 100.0,
+      "estimated_hz": 10.0,
+      "duplicate_steps": 0,
+      "negative_steps": 0,
+      "max_positive_gap_seconds": 0.119
+    },
+    {
+      "session_id": 2,
+      "start_row_zero_based": 44226,
+      "end_row_zero_based_inclusive": 105973,
+      "rows": 61748,
+      "start_time_ms": 10.0,
+      "end_time_ms": 6175975.0,
+      "duration_seconds": 6175.965,
+      "median_dt_ms": 100.0,
+      "estimated_hz": 10.0,
+      "duplicate_steps": 0,
+      "negative_steps": 0,
+      "max_positive_gap_seconds": 1.365
+    }
+  ],
+  "timestamp_resets": [
+    {
+      "row_zero_based": 44226,
+      "previous_row_zero_based": 44225,
+      "previous_time_ms": 4426727.0,
+      "current_time_ms": 10.0,
+      "delta_seconds": -4426.717
+    }
+  ],
+  "large_gaps": [
+    {
+      "row_zero_based": 53468,
+      "previous_row_zero_based": 53467,
+      "previous_time_ms": 924111.0,
+      "current_time_ms": 925476.0,
+      "gap_seconds": 1.365
+    }
+  ]
+}
