@@ -23,9 +23,31 @@ class SamplingSummary:
 
 
 def read_table(path: str | Path, nrows: int | None = None) -> pd.DataFrame:
-    """Read a CSV/TXT-style table without assuming the delimiter beforehand."""
+    """Read an IO-VNBD CSV/TXT file while tolerating legacy text encodings."""
     path = Path(path)
-    return pd.read_csv(path, sep=None, engine="python", nrows=nrows)
+
+    encodings = ("utf-8", "utf-8-sig", "cp1252", "latin1")
+    last_error: Exception | None = None
+
+    for encoding in encodings:
+        try:
+            return pd.read_csv(
+                path,
+                sep=None,
+                engine="python",
+                nrows=nrows,
+                encoding=encoding,
+            )
+        except UnicodeDecodeError as exc:
+            last_error = exc
+
+    raise UnicodeDecodeError(
+        getattr(last_error, "encoding", "unknown"),
+        getattr(last_error, "object", b""),
+        getattr(last_error, "start", 0),
+        getattr(last_error, "end", 1),
+        f"Could not decode {path} using {', '.join(encodings)}",
+    )
 
 
 def find_data_files(root: str | Path, extensions: Iterable[str] = (".csv", ".txt")) -> list[Path]:
