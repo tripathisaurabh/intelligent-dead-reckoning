@@ -23,6 +23,8 @@ data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/vta08_osm.xml
+!data/processed/vta16_osm.xml
 
 # Large model files
 *.pt

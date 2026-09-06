@@ -1,0 +1,25 @@
+experiment:
+  name: alignment_vta08
+  baseline_config: configs/baseline_vta08.yaml
+  iekf_config: configs/iekf_vta08.yaml
+  baseline_biases: results/metrics/baseline_vta08_biases.json
+  baseline_metadata: results/experiments/baseline_vta08/experiment_metadata.json
+  baseline_trajectory: results/experiments/baseline_vta08/basic_ins_trajectory.csv
+  iekf_trajectory: results/experiments/iekf_vta08/iekf_trajectory.csv
+  iekf_comparison: results/experiments/iekf_vta08/comparison.json
+
+# Causal, IMU-only selection at the beginning of the recording. Gyroscope
+# Z identifies low-turn motion; averaged gravity makes roll/pitch observable.
+# Yaw mounting is not observable from those signals and remains zero.
+alignment:
+  search_duration_s: 50.0
+  window_duration_s: 30.0
+  maximum_yaw_rate_rps: 0.03
+  minimum_low_yaw_fraction: 0.90
+  gravity_magnitude_mps2: 9.80665
+  gravity_tolerance_mps2: 0.50
+
+outputs:
+  experiment_dir: results/experiments/alignment_vta08
+  metrics: results/metrics/alignment_vta08_metrics.csv
+  plots_dir: results/plots/alignment_vta08

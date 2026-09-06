@@ -1,0 +1,28 @@
+experiment:
+  name: map_matching_vta08
+  smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv"
+  reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv"
+  blackout_start_s: 91.6
+  blackout_end_s: 111.6
+
+inputs:
+  step5_trajectory: results/experiments/gnss_fusion_vta08/oracle_initialized_blackout.csv
+  step5_evaluation: results/experiments/gnss_fusion_vta08/evaluation.json
+  osm_xml: data/processed/vta08_osm.xml
+
+matcher:
+  candidate_count: 12
+  maximum_candidate_distance_m: 120.0
+  distance_sigma_m: 18.0
+  heading_sigma_deg: 25.0
+  transition_beta_m: 12.0
+  transition_heading_sigma_deg: 30.0
+  road_turn_sigma_deg: 25.0
+  way_change_penalty: 12.0
+  heading_smoothing_half_window: 20  # robust course from +/-2 s, not 0.1 s jitter
+  window_size: 50          # 5-second fixed lag at the synchronized 10 Hz rate
+
+outputs:
+  experiment_dir: results/experiments/map_matching_vta08
+  metrics: results/metrics/map_matching_vta08_metrics.csv
+  plot: results/plots/map_matching_vta08/osm_hmm_comparison.png

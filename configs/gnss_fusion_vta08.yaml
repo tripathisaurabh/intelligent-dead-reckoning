@@ -1,0 +1,34 @@
+experiment:
+  name: gnss_fusion_vta08
+  smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv"
+  reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv"
+  evaluation_start_s: 90.102
+  evaluation_end_s: 140.0
+  blackout_start_s: 91.6
+  blackout_end_s: 111.6
+
+gnss:
+  minimum_satellites: 8
+  maximum_accuracy_m: 10.0
+  maximum_fix_age_s: 12.0
+  minimum_position_std_m: 3.0
+  velocity_std_mps: 1.5
+  innovation_chi_square_gate: 18.467  # chi-square, 4 DoF, 99.9%
+  # The IEKF can become over-confident during an outage. These terms enlarge
+  # only the reacquisition gate with elapsed outage time; accepted fixes are
+  # still fused using the accuracy values above.
+  reacquisition_position_uncertainty_growth_mps: 4.0
+  reacquisition_velocity_uncertainty_growth_mps2: 0.5
+  transition_duration_s: 3.0
+  maximum_transition_position_correction_m: 1.0
+
+inputs:
+  adapter_config: configs/adapter_cnn.yaml
+  iekf_config: configs/iekf_vta08.yaml
+  model: results/models/adapter_cnn_v1.pt
+  biases: results/metrics/baseline_vta08_biases.json
+
+outputs:
+  experiment_dir: results/experiments/gnss_fusion_vta08
+  metrics: results/metrics/gnss_fusion_vta08_metrics.csv
+  plot: results/plots/gnss_fusion_vta08/extended_trace.png

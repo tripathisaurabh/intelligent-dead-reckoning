@@ -1,0 +1,33 @@
+experiment:
+  name: baseline_vta08
+  smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv"
+  reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv"
+  blackout_duration_s: 20.0
+  minimum_speed_mps: 5.0
+  required_moving_fraction: 0.90
+  context_before_s: 10.0
+  context_after_s: 10.0
+
+validation:
+  maximum_gap_s: 0.15
+  gravity_mps2: 9.80665
+
+stationary:
+  maximum_reference_speed_mps: 0.5
+  maximum_gyro_norm_rps: 0.08
+  gravity_magnitude_tolerance_mps2: 0.75
+  minimum_duration_s: 5.0
+
+frames:
+  navigation: ENU
+  vehicle:
+    x: forward
+    y: left
+    z: up
+  gyro_column_order: [yaw, pitch, roll]
+  gyro_vehicle_order: [roll, pitch, yaw]
+
+outputs:
+  experiment_dir: results/experiments/baseline_vta08
+  metrics_dir: results/metrics
+  plots_dir: results/plots/baseline_vta08

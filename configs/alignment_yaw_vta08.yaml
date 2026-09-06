@@ -1,0 +1,27 @@
+experiment:
+  name: alignment_yaw_vta08
+  baseline_config: configs/baseline_vta08.yaml
+  iekf_config: configs/iekf_vta08.yaml
+  step3_config: configs/alignment_vta08.yaml
+  baseline_biases: results/metrics/baseline_vta08_biases.json
+  baseline_metadata: results/experiments/baseline_vta08/experiment_metadata.json
+  baseline_trajectory: results/experiments/baseline_vta08/basic_ins_trajectory.csv
+  iekf_trajectory: results/experiments/iekf_vta08/iekf_trajectory.csv
+  step3_trajectory: results/experiments/alignment_vta08/aligned_iekf_trajectory.csv
+  step3_comparison: results/experiments/alignment_vta08/comparison.json
+
+# The latest fixed two-second straight accelerating window that ends before
+# the blackout is selected. Selection never sees blackout reference error.
+yaw_alignment:
+  window_duration_s: 2.0
+  minimum_start_speed_mps: 0.5
+  minimum_end_speed_mps: 4.0
+  minimum_speed_gain_mps: 3.0
+  minimum_displacement_m: 4.0
+  maximum_course_heading_difference_deg: 5.0
+  maximum_yaw_rate_rms_rps: 0.08
+
+outputs:
+  experiment_dir: results/experiments/alignment_yaw_vta08
+  metrics: results/metrics/alignment_yaw_vta08_metrics.csv
+  plots_dir: results/plots/alignment_yaw_vta08

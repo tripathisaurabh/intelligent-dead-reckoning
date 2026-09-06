@@ -1,0 +1,19 @@
+experiment:
+  name: map_matching_vta16_validation
+  smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/S-Vta16.csv"
+  reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/V-vta16.csv"
+  expected_blackout_start_s: 413.7
+  expected_blackout_end_s: 433.7
+
+inputs:
+  adapter_config: configs/adapter_cnn.yaml
+  iekf_config: configs/iekf_vta08.yaml
+  model: results/models/adapter_cnn_v1.pt
+  matcher_config: configs/map_matching_vta08.yaml
+  step4_evaluation: results/experiments/adapter_cnn/evaluation.json
+  osm_xml: data/processed/vta16_osm.xml
+
+outputs:
+  experiment_dir: results/experiments/map_matching_vta16
+  metrics: results/metrics/map_matching_vta16_metrics.csv
+  plot: results/plots/map_matching_vta16/osm_hmm_comparison.png

@@ -1,0 +1,51 @@
+experiment:
+  name: adapter_cnn
+  # The requested Vw4/Vtb5 files are Git-LFS pointers in this checkout. These
+  # complete, locally available Driver-E sessions preserve a drive-level split.
+  train:
+    name: Vta2
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta02/S-Vta2.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta02/V-vta2.csv"
+  validation:
+    name: Vta16
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/S-Vta16.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/V-vta16.csv"
+  test:
+    name: Vta08
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv"
+
+model:
+  channels: 32
+  dropout: 0.10
+  context_samples: 32       # 3.2 s at 10 Hz; covers dilation-1/2/4/8 receptive field
+  output_channels: 11       # N scale(2), gyro bias(3), accel bias(3), accel scale(3)
+
+training:
+  seed: 270
+  rollout_samples: 10       # relative increments over 1 second
+  stride_samples: 10
+  minimum_speed_mps: 2.0
+  maximum_train_windows: 512
+  maximum_validation_windows: 128
+  batch_size: 16
+  epochs: 8
+  learning_rate: 0.001
+  weight_decay: 1.0e-5
+  gradient_clip_norm: 5.0
+  position_weight: 1.0
+  velocity_weight: 0.25
+  rotation_weight: 2.0
+
+# Static Driver-E mounting initializer from causal Vta08 Step 3b. The network
+# does not learn or emit mounting yaw.
+mounting:
+  roll_deg: 0.006393842576013844
+  pitch_deg: 0.009629585094294507
+  yaw_deg: 13.53710475855983
+
+outputs:
+  model: results/models/adapter_cnn_v1.pt
+  history: results/experiments/adapter_cnn/training_history.json
+  split: results/experiments/adapter_cnn/drive_split.json
+  loss_plot: results/plots/adapter_cnn/training_loss.png

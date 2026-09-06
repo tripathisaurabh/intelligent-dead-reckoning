@@ -1,0 +1,38 @@
+experiment:
+  name: iekf_vta08
+  baseline_config: configs/baseline_vta08.yaml
+  baseline_biases: results/metrics/baseline_vta08_biases.json
+  baseline_metadata: results/experiments/baseline_vta08/experiment_metadata.json
+  baseline_trajectory: results/experiments/baseline_vta08/basic_ins_trajectory.csv
+
+# Process/initial values are from the public NumPy implementation accompanying
+# Brossard, Barrau & Bonnabel, AI-IMU Dead-Reckoning (2020). Its KITTI
+# measurement covariance diag(0.2, 300) was unstable on this 10 Hz phone IMU.
+# A symmetric 10 (m/s)^2 loose constraint was selected after the documented
+# stability trials in results/experiments/iekf_vta08/covariance_trials.json.
+# It improves both endpoint error and whole-trajectory RMSE; the tighter [1,1]
+# setting had a better endpoint by chance but produced loops and worse RMSE.
+iekf:
+  gravity_mps2: 9.80665
+  process_covariance:
+    gyro: 1.0e-3
+    accelerometer: 1.0e-2
+    gyro_bias: 6.0e-9
+    accelerometer_bias: 2.0e-4
+    car_to_imu_rotation: 1.0e-9
+    car_to_imu_translation: 1.0e-9
+  measurement_covariance:
+    lateral_velocity: 10.0
+    upward_velocity: 10.0
+  initial_covariance:
+    roll_pitch: 1.0e-3
+    velocity: 1.0e-1
+    gyro_bias: 6.0e-3
+    accelerometer_bias: 4.0e-3
+    car_to_imu_rotation: 1.0e-6
+    car_to_imu_translation: 5.0e-3
+
+outputs:
+  experiment_dir: results/experiments/iekf_vta08
+  metrics: results/metrics/iekf_vta08_metrics.csv
+  plot: results/plots/iekf_vta08/trajectory_comparison.png
