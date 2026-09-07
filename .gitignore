@@ -32,24 +32,13 @@ data/processed/*
 *.ckpt
 *.onnx
 *.tflite
+!results/models/*.pt
+!results/models/*.pth
+!results/models/*.ckpt
+!results/models/*.onnx
+!results/models/*.tflite
 
-# Generated results
-results/models/*
-!results/models/.gitkeep
-results/plots/*
-!results/plots/.gitkeep
-results/metrics/*
-!results/metrics/.gitkeep
-results/experiments/*
-!results/experiments/.gitkeep
-
-# Phase 1 outputs: ignore by default, but keep selected evidence for team/presentation
-results/phase1/*
-!results/phase1/.gitkeep
-!results/phase1/timestamp_analysis/
-!results/phase1/timestamp_analysis/**
-!results/phase1/signal_overview/
-!results/phase1/signal_overview/**
+# Experiment results, plots, metrics, and reproducible model artifacts are tracked.
 
 # Local logs / temp
 *.log
