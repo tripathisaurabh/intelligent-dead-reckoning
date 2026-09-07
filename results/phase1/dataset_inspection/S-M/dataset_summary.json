@@ -1,0 +1,53 @@
+{
+  "file": "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/M (Driver B)/S-M.csv",
+  "rows": 105974,
+  "columns": [
+    "GPS LATITUDE (degrees)",
+    " GPS LONGITUDE (degrees)",
+    " GPS ALTITUDE (m)",
+    " GPS SPEED (Kmh)",
+    " GPS ACCURACY (m)",
+    " GPS ORIENTATION (\u00c2\u00b0)",
+    "GPS SATELLITES IN RANGE",
+    " TIME SINCE START (ms)",
+    " DATE (YYYY-MO-DD HH-MI-SS_SSS)",
+    " ACCELEROMETER X (m/s\u00b2) ",
+    " ACCELEROMETER Y (m/s\u00b2)",
+    " ACCELEROMETER Z (m/s\u00b2)",
+    " GRAVITY X (m/s\u00b2)",
+    " GRAVITY Y (m/s\u00b2)",
+    " GRAVITY Z (m/s\u00b2)",
+    " GYROSCOPE Yaw (rad/s)",
+    " GYROSCOPE Pitch (rad/s)",
+    " GYROSCOPE Roll (rad/s)",
+    " MAGNETIC FIELD X (\u00ce\u00bcT)",
+    " MAGNETIC FIELD Y (\u00ce\u00bcT)",
+    " MAGNETIC FIELD Z (\u00ce\u00bcT)",
+    " ORIENTATION (Yaw) (\u00c2\u00b0)",
+    " ORIENTATION (Pitch) (\u00c2\u00b0)",
+    " ORIENTATION (Roll ) (\u00c2\u00b0)"
+  ],
+  "time_candidates": [
+    " TIME SINCE START (ms)",
+    " DATE (YYYY-MO-DD HH-MI-SS_SSS)"
+  ],
+  "accelerometer_candidates": [
+    " ACCELEROMETER X (m/s\u00b2) ",
+    " ACCELEROMETER Y (m/s\u00b2)",
+    " ACCELEROMETER Z (m/s\u00b2)"
+  ],
+  "gyroscope_candidates": [
+    " GYROSCOPE Yaw (rad/s)",
+    " GYROSCOPE Pitch (rad/s)",
+    " GYROSCOPE Roll (rad/s)"
+  ],
+  "gnss_candidates": [
+    "GPS LATITUDE (degrees)",
+    " GPS LONGITUDE (degrees)",
+    " GPS ALTITUDE (m)",
+    " GPS SPEED (Kmh)",
+    " GPS ACCURACY (m)",
+    " GPS ORIENTATION (\u00c2\u00b0)",
+    "GPS SATELLITES IN RANGE"
+  ]
+}

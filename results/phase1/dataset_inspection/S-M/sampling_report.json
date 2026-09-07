@@ -1,0 +1,20 @@
+[
+  {
+    "column": " TIME SINCE START (ms)",
+    "samples": 105974,
+    "duplicate_timestamps": 0,
+    "non_monotonic_steps": 1,
+    "median_dt_seconds": 0.09999999999990905,
+    "estimated_hz": 10.000000000009095,
+    "max_gap_seconds": 1.365000000000009
+  },
+  {
+    "column": " DATE (YYYY-MO-DD HH-MI-SS_SSS)",
+    "samples": 105974,
+    "duplicate_timestamps": 0,
+    "non_monotonic_steps": 0,
+    "median_dt_seconds": null,
+    "estimated_hz": null,
+    "max_gap_seconds": null
+  }
+]
