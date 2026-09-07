@@ -1,0 +1,39 @@
+{
+  "start_index": 895,
+  "end_index_exclusive": 916,
+  "start_time_s": 89.5,
+  "end_time_s": 91.5,
+  "duration_s": 2.0,
+  "yaw_deg": 13.53710495544362,
+  "mean_horizontal_acceleration_imu_mps2": [
+    1.2682267424242424,
+    0.30534308441558444
+  ],
+  "speed_start_mps": 0.5319444444444444,
+  "speed_end_mps": 4.878055555555555,
+  "speed_gain_mps": 4.346111111111111,
+  "displacement_m": 6.001708607291547,
+  "displacement_course_deg": 14.55815691131797,
+  "mean_gps_heading_deg": 14.85919679246793,
+  "course_heading_difference_deg": -0.3010398811499613,
+  "yaw_rate_rms_rps": 0.04381778803029055,
+  "phone_orientation_pitch_median_deg": -88.85,
+  "phone_orientation_near_gimbal_lock": true,
+  "rotation_car_to_imu": [
+    [
+      0.9722185227081809,
+      -0.2340750054689037,
+      0.0001895200654490052
+    ],
+    [
+      0.23407502185470738,
+      0.9722185347757986,
+      -6.915285809282784e-05
+    ],
+    [
+      -0.00016806796470517625,
+      0.000111593602997939,
+      0.9999999796500134
+    ]
+  ]
+}

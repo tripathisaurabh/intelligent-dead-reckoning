@@ -1,0 +1,152 @@
+{
+  "vta08": {
+    "step1": {
+      "final_position_error_m": 136.73095698513956,
+      "position_rmse_m": 65.01450814803911,
+      "mean_position_error_m": 50.90328093990494,
+      "maximum_position_error_m": 136.73095698513956,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 96.29288111936728,
+      "method": "unfiltered_calibrated_imu_basic_ins",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    "step2": {
+      "final_position_error_m": 78.72340780644305,
+      "position_rmse_m": 41.06928781078083,
+      "mean_position_error_m": 34.1076282232222,
+      "maximum_position_error_m": 78.72340780644305,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 55.44102020759767,
+      "method": "fixed_covariance_iekf_nonholonomic",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    "step3_tilt": {
+      "final_position_error_m": 78.74745831136777,
+      "position_rmse_m": 41.12777566570766,
+      "mean_position_error_m": 34.15567434758502,
+      "maximum_position_error_m": 78.74745831136777,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 55.457957794100686,
+      "method": "fixed_covariance_iekf_with_gravity_mounting_alignment",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    "step3b_yaw": {
+      "final_position_error_m": 32.47775674094749,
+      "position_rmse_m": 35.012806375908724,
+      "mean_position_error_m": 29.17743260936624,
+      "maximum_position_error_m": 66.9521299647148,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 22.872485045355756,
+      "method": "fixed_covariance_iekf_with_gps_heading_mounting_yaw",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    "step4_cnn": {
+      "final_position_error_m": 29.770279649678848,
+      "position_rmse_m": 27.84531079049875,
+      "mean_position_error_m": 23.11409902355087,
+      "maximum_position_error_m": 66.95960056450768,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 20.96574223135441,
+      "session": "Vta08",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "samples": 201,
+      "method": "yaw_aligned_cnn_adaptive_iekf"
+    },
+    "change_from_step3b": {
+      "final_position_error_m": -2.707477091268643,
+      "position_rmse_m": -7.167495585409974,
+      "drift_percentage_points": -1.906742814001344
+    }
+  },
+  "held_out_validation_session": {
+    "fixed": {
+      "final_position_error_m": 143.2658665618869,
+      "position_rmse_m": 82.28795694585486,
+      "mean_position_error_m": 65.71121881649364,
+      "maximum_position_error_m": 143.2658665618869,
+      "distance_travelled_m": 145.1739278765018,
+      "drift_percent": 98.68567218472032,
+      "session": "Vta16",
+      "blackout_start_time_s": 413.7,
+      "blackout_end_time_s": 433.7,
+      "samples": 201,
+      "method": "yaw_aligned_fixed_covariance_iekf"
+    },
+    "cnn": {
+      "final_position_error_m": 73.3974259325468,
+      "position_rmse_m": 68.09020768140853,
+      "mean_position_error_m": 52.44484392018437,
+      "maximum_position_error_m": 144.261114695719,
+      "distance_travelled_m": 145.1739278765018,
+      "drift_percent": 50.558269660503605,
+      "session": "Vta16",
+      "blackout_start_time_s": 413.7,
+      "blackout_end_time_s": 433.7,
+      "samples": 201,
+      "method": "yaw_aligned_cnn_adaptive_iekf"
+    }
+  },
+  "adapter_outputs_vta08": {
+    "measurement_scale_mean": [
+      0.2363344893529369,
+      0.14447886422749437
+    ],
+    "gyro_bias_delta_mean_rps": [
+      -0.002040894702076912,
+      -0.003716575214639306,
+      0.0018097282154485583
+    ],
+    "accel_bias_delta_mean_mps2": [
+      0.07484479993581772,
+      0.02658526785671711,
+      -0.08202151209115982
+    ],
+    "accel_scale_mean": [
+      0.9113415479660034,
+      0.9141532778739929,
+      0.9902771711349487
+    ]
+  },
+  "model": {
+    "parameter_count": 10411,
+    "file_size_bytes": 52386,
+    "cpu_latency_per_window": {
+      "median_ms": 0.1307709899265319,
+      "p95_ms": 0.22953929728828334,
+      "runs": 200
+    },
+    "context_samples": 32,
+    "context_seconds_at_10hz": 3.2
+  },
+  "split": {
+    "train": "Vta2",
+    "validation": "Vta16",
+    "test": "Vta08",
+    "split_rule": "whole drives; no within-drive train/validation split",
+    "phone_speed_unit_assessment": {
+      "Vta2": {
+        "assessment": "m/s despite Kmh label",
+        "mae_if_raw_is_mps": 0.2641726257788421,
+        "mae_if_raw_is_kmh": 7.954939605091021
+      },
+      "Vta16": {
+        "assessment": "m/s despite Kmh label",
+        "mae_if_raw_is_mps": 1.017460328870997,
+        "mae_if_raw_is_kmh": 9.437990537503861
+      }
+    }
+  }
+}

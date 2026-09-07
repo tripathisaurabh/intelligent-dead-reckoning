@@ -1,0 +1,60 @@
+{
+  "scope": "downstream OSM HMM/Viterbi map matching; no feedback into IEKF state",
+  "session": "Vta08",
+  "blackout_start_s": 91.6,
+  "blackout_end_s": 111.6,
+  "samples": 201,
+  "road_network": {
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL",
+    "xml": "data/processed/vta08_osm.xml",
+    "drivable_segments": 1279,
+    "graph_nodes": 1263,
+    "graph_edges": 1279
+  },
+  "matcher": {
+    "candidate_count": 12,
+    "maximum_candidate_distance_m": 120.0,
+    "distance_sigma_m": 18.0,
+    "heading_sigma_deg": 25.0,
+    "transition_beta_m": 12.0,
+    "transition_heading_sigma_deg": 30.0,
+    "road_turn_sigma_deg": 25.0,
+    "way_change_penalty": 12.0,
+    "heading_smoothing_half_window": 20,
+    "window_size": 50
+  },
+  "heading_source": "Step 5 bias/CNN-corrected gyro integration from the initial heading; no VBOX after initialization",
+  "before_map_matching": {
+    "final_position_error_m": 29.770295937565265,
+    "position_rmse_m": 27.845307376249693,
+    "mean_position_error_m": 23.1140971022276,
+    "maximum_position_error_m": 66.95958834681677,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 20.965753702110888
+  },
+  "after_map_matching": {
+    "final_position_error_m": 15.826625124932445,
+    "position_rmse_m": 19.243128367338482,
+    "mean_position_error_m": 16.235464639490623,
+    "maximum_position_error_m": 42.437430797944444,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 11.145912858940527
+  },
+  "change": {
+    "final_position_error_m": -13.94367081263282,
+    "position_rmse_m": -8.602179008911211,
+    "drift_percentage_points": -9.819840843170361
+  },
+  "step5_input_consistency": {
+    "endpoint_difference_m": 9.758072692989117e-06,
+    "rmse_difference_m": 4.595708109178531e-06
+  },
+  "candidate_diagnostics": {
+    "mean_snap_distance_m": 14.375175549275976,
+    "maximum_snap_distance_m": 47.82536494171852,
+    "mean_heading_error_deg": 6.661891527549526,
+    "unique_segments": 7,
+    "unique_ways": 1
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "scope": "GNSS gating/arbitration/blending only; no map matching",
+  "interpretation": "GNSS is suppressed throughout the blackout; blackout drift is pure inertial propagation.",
+  "interval": {
+    "start_s": 90.102,
+    "end_s": 140.0,
+    "samples": 500
+  },
+  "blackout": {
+    "start_s": 91.6,
+    "end_s": 111.6,
+    "fused_entry_then_no_gnss": {
+      "final_position_error_m": 108.99097174641983,
+      "position_rmse_m": 74.25927539656064,
+      "mean_position_error_m": 65.53764001823936,
+      "maximum_position_error_m": 108.99097174641983,
+      "distance_travelled_m": 141.99487583530018,
+      "drift_percent": 76.75697528186753
+    },
+    "same_initial_fix_dead_reckoning": {
+      "final_position_error_m": 113.19128045184547,
+      "position_rmse_m": 75.73912798646066,
+      "mean_position_error_m": 66.8630567999921,
+      "maximum_position_error_m": 113.19128045184547,
+      "distance_travelled_m": 141.99487583530018,
+      "drift_percent": 79.71504590287893
+    },
+    "step5_oracle_initialized_no_gnss_rerun": {
+      "final_position_error_m": 29.770286179492572,
+      "position_rmse_m": 27.845302780541584,
+      "mean_position_error_m": 23.11409242917185,
+      "maximum_position_error_m": 66.95958104887195,
+      "distance_travelled_m": 141.99487583530018,
+      "drift_percent": 20.96574683020472,
+      "session": "Vta08",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "samples": 201,
+      "method": "step5_oracle_initialized_cnn_iekf_gnss_suppressed"
+    },
+    "step4_reference_result": {
+      "final_position_error_m": 29.770279649678848,
+      "position_rmse_m": 27.84531079049875,
+      "mean_position_error_m": 23.11409902355087,
+      "maximum_position_error_m": 66.95960056450768,
+      "distance_travelled_m": 141.99487583681722,
+      "drift_percent": 20.96574223135441,
+      "session": "Vta08",
+      "blackout_start_time_s": 91.6,
+      "blackout_end_time_s": 111.6,
+      "samples": 201,
+      "method": "yaw_aligned_cnn_adaptive_iekf"
+    },
+    "step5_minus_step4": {
+      "final_position_error_m": 6.529813724398537e-06,
+      "position_rmse_m": -8.009957166876802e-06,
+      "drift_percentage_points": 4.598850306791746e-06
+    },
+    "entry_horizontal_position_error_m": 1.3887704967313441,
+    "entry_horizontal_velocity_error_mps": 0.08249397278489762
+  },
+  "extended_trace": {
+    "gnss_fused": {
+      "final_position_error_m": 196.20413983303953,
+      "position_rmse_m": 121.15912377491583,
+      "mean_position_error_m": 108.76151946557142,
+      "maximum_position_error_m": 196.20413983303953,
+      "distance_travelled_m": 298.44469026126114,
+      "drift_percent": 65.74221161759677
+    },
+    "dead_reckoning_only": {
+      "final_position_error_m": 216.94121172321766,
+      "position_rmse_m": 152.52845487020346,
+      "mean_position_error_m": 132.7852610559639,
+      "maximum_position_error_m": 251.0993964429954,
+      "distance_travelled_m": 298.44469026126114,
+      "drift_percent": 72.69059185918348
+    }
+  },
+  "reacquisition": {
+    "first_transition_time_s": 117.1,
+    "position_correction_on_first_reacquired_sample_m": 0.0,
+    "zero_immediate_correction_is_intentional": true,
+    "zero_immediate_correction_explanation": "The first reacquired fix starts TRANSITIONING at blend weight 0, preventing a position jump; correction begins on the next sample as the weight rises.",
+    "first_nonzero_correction_time_s": 117.201,
+    "first_nonzero_correction_elapsed_s": 0.10099999999999909,
+    "first_nonzero_blend_weight": 0.033666666666666366,
+    "first_nonzero_position_correction_m": 0.9999990000589464,
+    "maximum_single_sample_transition_correction_m": 0.9999990009226031,
+    "transition_duration_s": 3.0
+  },
+  "gnss": {
+    "accepted_new_fixes": 2,
+    "rejected_new_fix_innovations": 2,
+    "quality_reason_samples": {
+      "accepted": 105,
+      "unavailable": 201,
+      "stale": 54,
+      "innovation": 140
+    },
+    "distinct_source_fixes_in_interval": 6
+  }
+}

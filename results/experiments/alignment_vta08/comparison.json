@@ -1,0 +1,132 @@
+{
+  "baseline": {
+    "final_position_error_m": 136.73095698513956,
+    "position_rmse_m": 65.01450814803911,
+    "mean_position_error_m": 50.90328093990494,
+    "maximum_position_error_m": 136.73095698513956,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 96.29288111936728,
+    "method": "unfiltered_calibrated_imu_basic_ins",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf": {
+    "final_position_error_m": 78.72340780644305,
+    "position_rmse_m": 41.06928781078083,
+    "mean_position_error_m": 34.1076282232222,
+    "maximum_position_error_m": 78.72340780644305,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 55.44102020759767,
+    "method": "fixed_covariance_iekf_nonholonomic",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf_with_alignment": {
+    "final_position_error_m": 78.74745831136777,
+    "position_rmse_m": 41.12777566570766,
+    "mean_position_error_m": 34.15567434758502,
+    "maximum_position_error_m": 78.74745831136777,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 55.457957794100686,
+    "method": "fixed_covariance_iekf_with_gravity_mounting_alignment",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "change_from_step2": {
+    "final_position_error_m": 0.024050504924716165,
+    "position_rmse_m": 0.05848785492683106,
+    "drift_percentage_points": 0.01693758650301902
+  },
+  "alignment": {
+    "start_index": 0,
+    "end_index_exclusive": 301,
+    "start_time_s": 0.0,
+    "end_time_s": 30.0,
+    "duration_s": 30.0,
+    "roll_deg": 0.006393842576013844,
+    "pitch_deg": 0.009629585094294507,
+    "mean_gravity_imu_mps2": [
+      0.0016481727574750834,
+      -0.0010943521594684396,
+      9.806584717607905
+    ],
+    "mean_gyro_imu_rps": [
+      -0.005888338115373,
+      0.008697706131078226,
+      -0.003488622017517366
+    ],
+    "yaw_rate_rms_rps": 0.017432175036822223,
+    "rotation_car_to_imu": [
+      [
+        0.9999999858765796,
+        1.875530999487019e-08,
+        0.00016806796365868992
+      ],
+      [
+        0.0,
+        0.9999999937734337,
+        -0.0001115936045740224
+      ],
+      [
+        -0.00016806796470517625,
+        0.000111593602997939,
+        0.9999999796500134
+      ]
+    ]
+  },
+  "online_extrinsic_refinement": {
+    "rotation_change_deg": 0.004411973932599246,
+    "translation_change_m": 0.009904140289321366,
+    "initial_rotation_car_to_imu": [
+      [
+        0.9999999858765798,
+        1.875530999486866e-08,
+        0.00016806796365868994
+      ],
+      [
+        0.0,
+        0.9999999937734338,
+        -0.00011159360457372111
+      ],
+      [
+        -0.00016806796470517627,
+        0.00011159360299792987,
+        0.9999999796500135
+      ]
+    ],
+    "final_rotation_car_to_imu": [
+      [
+        0.9999999950700009,
+        -2.6267685461592873e-05,
+        9.576015812849128e-05
+      ],
+      [
+        2.627806636963517e-05,
+        0.99999999377884,
+        -0.00010840564712574148
+      ],
+      [
+        -9.575730996727387e-05,
+        0.00010840816298338836,
+        0.9999999895391043
+      ]
+    ],
+    "initial_translation_car_to_imu_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "final_translation_car_to_imu_m": [
+      -0.00768647878896284,
+      -0.004991115885035253,
+      -0.003754837003057763
+    ]
+  },
+  "interpretation": "Vta08 was already essentially level. The estimated sub-0.01-degree tilt leaves Step 2 performance flat, with a small numerical worsening."
+}

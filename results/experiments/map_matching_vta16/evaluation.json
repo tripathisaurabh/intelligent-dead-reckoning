@@ -1,0 +1,65 @@
+{
+  "validation_role": "Vta16 was excluded from gradient updates but used for Step 4 epoch selection",
+  "parameter_policy": "Exact Vta08 Step 6 matcher parameters reused without Vta16 tuning",
+  "session": "Vta16",
+  "blackout_start_s": 413.7,
+  "blackout_end_s": 433.7,
+  "samples": 201,
+  "road_network": {
+    "source": "OpenStreetMap via Overpass API",
+    "license": "ODbL",
+    "drivable_segments": 575,
+    "graph_nodes": 568,
+    "graph_edges": 575
+  },
+  "matcher": {
+    "candidate_count": 12,
+    "maximum_candidate_distance_m": 120.0,
+    "distance_sigma_m": 18.0,
+    "heading_sigma_deg": 25.0,
+    "transition_beta_m": 12.0,
+    "transition_heading_sigma_deg": 30.0,
+    "road_turn_sigma_deg": 25.0,
+    "way_change_penalty": 12.0,
+    "heading_smoothing_half_window": 20,
+    "window_size": 50
+  },
+  "before_map_matching": {
+    "final_position_error_m": 73.3974259325468,
+    "position_rmse_m": 68.09020768140853,
+    "mean_position_error_m": 52.44484392018437,
+    "maximum_position_error_m": 144.261114695719,
+    "distance_travelled_m": 145.1739278765018,
+    "drift_percent": 50.558269660503605
+  },
+  "after_map_matching": {
+    "final_position_error_m": 82.8205446051645,
+    "position_rmse_m": 63.17734395748188,
+    "mean_position_error_m": 48.650676128546834,
+    "maximum_position_error_m": 141.7277777624216,
+    "distance_travelled_m": 145.1739278765018,
+    "drift_percent": 57.04918632195391
+  },
+  "change": {
+    "final_position_error_m": 9.423118672617704,
+    "position_rmse_m": -4.912863723926648,
+    "drift_percentage_points": 6.490916661450306
+  },
+  "step4_reproduction_difference": {
+    "final_position_error_m": 0.0,
+    "position_rmse_m": 0.0
+  },
+  "candidate_diagnostics": {
+    "mean_snap_distance_m": 14.352226913488387,
+    "maximum_snap_distance_m": 44.44804106825179,
+    "mean_heading_error_deg": 30.547860940427977,
+    "unique_segments": 4,
+    "unique_ways": 1
+  },
+  "endpoint_progress_diagnostic": {
+    "closest_reference_time_since_blackout_s": 7.800000000000011,
+    "distance_to_that_reference_point_m": 2.1426496493240057,
+    "reference_distance_remaining_after_that_point_m": 90.75104671322714,
+    "interpretation": "The HMM selected the driven road but placed the endpoint much too far back along it; road constraints do not observe longitudinal progress."
+  }
+}

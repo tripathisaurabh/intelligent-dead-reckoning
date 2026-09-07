@@ -1,0 +1,3 @@
+final_position_error_m,position_rmse_m,mean_position_error_m,maximum_position_error_m,distance_travelled_m,drift_percent,method,blackout_start_time_s,blackout_end_time_s,blackout_duration_s,samples
+136.73095698513956,65.01450814803911,50.90328093990494,136.73095698513956,141.99487583681722,96.29288111936728,unfiltered_calibrated_imu_basic_ins,91.6,111.6,20.0,201
+78.72340780644305,41.06928781078083,34.1076282232222,78.72340780644305,141.99487583681722,55.44102020759767,fixed_covariance_iekf_nonholonomic,91.6,111.6,20.0,201

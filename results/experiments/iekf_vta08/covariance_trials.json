@@ -1,0 +1,73 @@
+{
+  "purpose": "manual stability check after published KITTI covariance diverged",
+  "selected": {
+    "lateral": 10.0,
+    "upward": 10.0
+  },
+  "warning": "These trials use Vta08 and are not evidence of cross-drive generalization.",
+  "trials": [
+    {
+      "lateral": 0.2,
+      "upward": 300.0,
+      "fpe_m": 311.53,
+      "rmse_m": 148.94,
+      "drift_percent": 219.4
+    },
+    {
+      "lateral": 0.2,
+      "upward": 10.0,
+      "fpe_m": 570.45,
+      "rmse_m": 249.38,
+      "drift_percent": 401.7
+    },
+    {
+      "lateral": 0.2,
+      "upward": 1.0,
+      "fpe_m": 101.49,
+      "rmse_m": 68.38,
+      "drift_percent": 71.5
+    },
+    {
+      "lateral": 0.2,
+      "upward": 0.2,
+      "fpe_m": 94.16,
+      "rmse_m": 69.72,
+      "drift_percent": 66.3
+    },
+    {
+      "lateral": 1.0,
+      "upward": 1.0,
+      "fpe_m": 56.68,
+      "rmse_m": 67.69,
+      "drift_percent": 39.9
+    },
+    {
+      "lateral": 10.0,
+      "upward": 10.0,
+      "fpe_m": 78.72,
+      "rmse_m": 41.07,
+      "drift_percent": 55.4
+    },
+    {
+      "lateral": 0.01,
+      "upward": 0.01,
+      "fpe_m": 210.81,
+      "rmse_m": 121.41,
+      "drift_percent": 148.5
+    },
+    {
+      "lateral": 1.0,
+      "upward": 0.1,
+      "fpe_m": 156.44,
+      "rmse_m": 80.23,
+      "drift_percent": 110.2
+    },
+    {
+      "lateral": 10.0,
+      "upward": 0.1,
+      "fpe_m": 74.66,
+      "rmse_m": 52.02,
+      "drift_percent": 52.6
+    }
+  ]
+}

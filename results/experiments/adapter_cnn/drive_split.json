@@ -1,0 +1,18 @@
+{
+  "train": "Vta2",
+  "validation": "Vta16",
+  "test": "Vta08",
+  "split_rule": "whole drives; no within-drive train/validation split",
+  "phone_speed_unit_assessment": {
+    "Vta2": {
+      "assessment": "m/s despite Kmh label",
+      "mae_if_raw_is_mps": 0.2641726257788421,
+      "mae_if_raw_is_kmh": 7.954939605091021
+    },
+    "Vta16": {
+      "assessment": "m/s despite Kmh label",
+      "mae_if_raw_is_mps": 1.017460328870997,
+      "mae_if_raw_is_kmh": 9.437990537503861
+    }
+  }
+}

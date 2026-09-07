@@ -1,0 +1,57 @@
+{
+  "baseline": {
+    "final_position_error_m": 136.73095698513956,
+    "position_rmse_m": 65.01450814803911,
+    "mean_position_error_m": 50.90328093990494,
+    "maximum_position_error_m": 136.73095698513956,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 96.29288111936728,
+    "method": "unfiltered_calibrated_imu_basic_ins",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf": {
+    "final_position_error_m": 78.72340780644305,
+    "position_rmse_m": 41.06928781078083,
+    "mean_position_error_m": 34.1076282232222,
+    "maximum_position_error_m": 78.72340780644305,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 55.44102020759767,
+    "method": "fixed_covariance_iekf_nonholonomic",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "final_error_improvement_percent": 42.424590932250254,
+  "rmse_improvement_percent": 36.83057984955392,
+  "fixed_covariances": {
+    "process_diagonal": [
+      0.001,
+      0.001,
+      0.001,
+      0.01,
+      0.01,
+      0.01,
+      6e-09,
+      6e-09,
+      6e-09,
+      0.0002,
+      0.0002,
+      0.0002,
+      1e-09,
+      1e-09,
+      1e-09,
+      1e-09,
+      1e-09,
+      1e-09
+    ],
+    "measurement_diagonal": [
+      10.0,
+      10.0
+    ]
+  },
+  "covariance_selection_note": "The published KITTI default measurement diagonal [0.2, 300] was unstable on Vta08. The locked [10, 10] (m/s)^2 constraint is intentionally loose and symmetric. The tighter [1,1] endpoint looked better but had worse RMSE and a looping trajectory; all manual stability trials are reported separately."
+}

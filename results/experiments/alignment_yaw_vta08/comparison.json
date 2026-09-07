@@ -1,0 +1,150 @@
+{
+  "baseline": {
+    "final_position_error_m": 136.73095698513956,
+    "position_rmse_m": 65.01450814803911,
+    "mean_position_error_m": 50.90328093990494,
+    "maximum_position_error_m": 136.73095698513956,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 96.29288111936728,
+    "method": "unfiltered_calibrated_imu_basic_ins",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf": {
+    "final_position_error_m": 78.72340780644305,
+    "position_rmse_m": 41.06928781078083,
+    "mean_position_error_m": 34.1076282232222,
+    "maximum_position_error_m": 78.72340780644305,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 55.44102020759767,
+    "method": "fixed_covariance_iekf_nonholonomic",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf_with_tilt_alignment": {
+    "final_position_error_m": 78.74745831136777,
+    "position_rmse_m": 41.12777566570766,
+    "mean_position_error_m": 34.15567434758502,
+    "maximum_position_error_m": 78.74745831136777,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 55.457957794100686,
+    "method": "fixed_covariance_iekf_with_gravity_mounting_alignment",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "iekf_with_tilt_and_gps_heading_yaw": {
+    "final_position_error_m": 32.47775674094749,
+    "position_rmse_m": 35.012806375908724,
+    "mean_position_error_m": 29.17743260936624,
+    "maximum_position_error_m": 66.9521299647148,
+    "distance_travelled_m": 141.99487583681722,
+    "drift_percent": 22.872485045355756,
+    "method": "fixed_covariance_iekf_with_gps_heading_mounting_yaw",
+    "blackout_start_time_s": 91.6,
+    "blackout_end_time_s": 111.6,
+    "blackout_duration_s": 20.0,
+    "samples": 201
+  },
+  "change_from_step2": {
+    "final_position_error_m": -46.24565106549556,
+    "position_rmse_m": -6.056481434872104,
+    "drift_percentage_points": -32.568535162241915
+  },
+  "improvement_from_step2_percent": {
+    "final_position_error": 58.74447302789479,
+    "position_rmse": 14.746984322631125
+  },
+  "tilt_alignment": {
+    "start_index": 0,
+    "end_index_exclusive": 301,
+    "start_time_s": 0.0,
+    "end_time_s": 30.0,
+    "duration_s": 30.0,
+    "roll_deg": 0.006393842576013844,
+    "pitch_deg": 0.009629585094294507,
+    "mean_gravity_imu_mps2": [
+      0.0016481727574750834,
+      -0.0010943521594684396,
+      9.806584717607905
+    ],
+    "mean_gyro_imu_rps": [
+      -0.005888338115373,
+      0.008697706131078226,
+      -0.003488622017517366
+    ],
+    "yaw_rate_rms_rps": 0.017432175036822223,
+    "rotation_car_to_imu": [
+      [
+        0.9999999858765796,
+        1.875530999487019e-08,
+        0.00016806796365868992
+      ],
+      [
+        0.0,
+        0.9999999937734337,
+        -0.0001115936045740224
+      ],
+      [
+        -0.00016806796470517625,
+        0.000111593602997939,
+        0.9999999796500134
+      ]
+    ]
+  },
+  "gps_heading_yaw_alignment": {
+    "start_index": 895,
+    "end_index_exclusive": 916,
+    "start_time_s": 89.5,
+    "end_time_s": 91.5,
+    "duration_s": 2.0,
+    "yaw_deg": 13.53710495544362,
+    "mean_horizontal_acceleration_imu_mps2": [
+      1.2682267424242424,
+      0.30534308441558444
+    ],
+    "speed_start_mps": 0.5319444444444444,
+    "speed_end_mps": 4.878055555555555,
+    "speed_gain_mps": 4.346111111111111,
+    "displacement_m": 6.001708607291547,
+    "displacement_course_deg": 14.55815691131797,
+    "mean_gps_heading_deg": 14.85919679246793,
+    "course_heading_difference_deg": -0.3010398811499613,
+    "yaw_rate_rms_rps": 0.04381778803029055,
+    "phone_orientation_pitch_median_deg": -88.85,
+    "phone_orientation_near_gimbal_lock": true,
+    "rotation_car_to_imu": [
+      [
+        0.9722185227081809,
+        -0.2340750054689037,
+        0.0001895200654490052
+      ],
+      [
+        0.23407502185470738,
+        0.9722185347757986,
+        -6.915285809282784e-05
+      ],
+      [
+        -0.00016806796470517625,
+        0.000111593602997939,
+        0.9999999796500134
+      ]
+    ]
+  },
+  "phone_speed_unit_assessment": {
+    "assessment": "m/s despite Kmh label",
+    "mae_if_raw_is_mps": 1.3300887080570625,
+    "mae_if_raw_is_kmh": 8.903223930078362
+  },
+  "leakage_check": {
+    "last_alignment_index": 915,
+    "first_blackout_index": 916,
+    "passes": true
+  },
+  "interpretation": "The causal +13.54-degree mounting-yaw correction substantially reduces the bend. GPS course/heading selects and validates the straight accelerating window; phone linear acceleration supplies the car-forward direction in phone coordinates."
+}

@@ -1,0 +1,77 @@
+{
+  "experiment": "baseline_vta08",
+  "smartphone_source": "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv",
+  "reference_source": "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv",
+  "smartphone_sampling": {
+    "samples": 3676,
+    "duration_s": 367.5,
+    "median_dt_s": 0.09999999999999432,
+    "estimated_hz": 10.000000000000568,
+    "timestamp_resets": 0,
+    "gaps_over_limit": 0,
+    "maximum_dt_s": 0.10800000000000409
+  },
+  "reference_sampling": {
+    "samples": 3676,
+    "duration_s": 367.5,
+    "median_dt_s": 0.09999999999854481,
+    "estimated_hz": 10.00000000014552,
+    "timestamp_resets": 0,
+    "gaps_over_limit": 0,
+    "maximum_dt_s": 0.10000000000582077
+  },
+  "missing_values": {
+    "smartphone": 0,
+    "reference": 0
+  },
+  "phone_speed_unit_assessment": {
+    "assessment": "m/s despite Kmh label",
+    "mae_if_raw_is_mps": 1.3300887080570625,
+    "mae_if_raw_is_kmh": 8.903223930078362
+  },
+  "accelerometer_mps2": {
+    "minimum_xyz": [
+      -10.0571,
+      -12.6537,
+      6.8202
+    ],
+    "maximum_xyz": [
+      11.9939,
+      16.6997,
+      12.6784
+    ]
+  },
+  "gyroscope_rps": {
+    "minimum_ypr": [
+      -0.5518,
+      -1.9475,
+      -1.1536
+    ],
+    "maximum_ypr": [
+      0.3456,
+      2.2036,
+      1.3459
+    ]
+  },
+  "gravity_magnitude_mps2": {
+    "mean": 9.806598815853917,
+    "std": 3.508537411019905e-05
+  },
+  "reference_speed_mps": {
+    "minimum": 0.0011111111111111111,
+    "maximum": 21.551944444444445,
+    "mean": 9.257216932656268
+  },
+  "heading_validation": {
+    "convention": "VBOX heading is treated as degrees clockwise from North",
+    "moving_samples_compared": 2560,
+    "median_course_heading_difference_deg": 0.1697503917446852,
+    "p95_course_heading_difference_deg": 0.7321033745538159
+  },
+  "frame_contract": {
+    "device_to_vehicle": "IO-VNBD mounting assumption: X forward, Y left, Z up",
+    "vehicle_to_navigation": "vehicle X-forward/Y-left/Z-up to ENU",
+    "reference_heading": "clockwise from North",
+    "gyro_mapping": "source [yaw,pitch,roll] -> body XYZ [roll,pitch,yaw]"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "start_index": 916,
+  "end_index_inclusive": 1116,
+  "start_time_s": 91.6,
+  "end_time_s": 111.6,
+  "duration_s": 20.0,
+  "selection_rule": "earliest qualifying interval after calibration; independent of INS error",
+  "calibration_end_index_exclusive": 887,
+  "distance_travelled_m": 141.99487583681722
+}
