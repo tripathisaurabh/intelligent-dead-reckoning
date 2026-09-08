@@ -25,6 +25,7 @@ data/processed/*
 !data/processed/.gitkeep
 !data/processed/vta08_osm.xml
 !data/processed/vta16_osm.xml
+!data/processed/S3c_osm.xml
 
 # Large model files
 *.pt

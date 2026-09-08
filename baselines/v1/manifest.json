@@ -1,0 +1,54 @@
+{
+  "name": "Baseline v1",
+  "git_tag": "baseline-v1",
+  "frozen_on": "2026-09-08",
+  "model": {
+    "architecture": "DilatedCNNAdapter",
+    "checkpoint": "results/models/adapter_cnn_v1.pt",
+    "sha256": "a126a384d0af7bf0406d88a0eaf4bf789b1cc2658b637dd4ef3991af63f9c9fd",
+    "parameter_count": 10411,
+    "training_session": "Vta2",
+    "validation_session": "Vta16",
+    "best_validation_loss": 0.13871816731989384,
+    "training_windows": 512,
+    "validation_windows": 128
+  },
+  "configuration_sha256": {
+    "configs/adapter_cnn.yaml": "7b6fd1bdab48fe324fea3850c9060b859cfe8eda5ebf3092fc4985d898262ee8",
+    "configs/iekf_vta08.yaml": "f296d436433db9ca69d9b3a196be70b9bbbdc4d438f42d1be3b72de1d34749a9",
+    "configs/map_matching_vta08.yaml": "2a489ca0f132cf703a25f74fbe1f5a371f11575d362d68fe60d8a7f8588db4a9",
+    "configs/baseline_vta08.yaml": "49593922c1bd296ad4d555d511cdebbe342005cff38bb92e285293e5db0ce9b3",
+    "configs/cross_session_s3c.yaml": "8fdedebaaeca1824cf0b1c74b6daed570350279acee8d24b9eb0738911b2d404"
+  },
+  "result_sha256": {
+    "results/experiments/adapter_cnn/evaluation.json": "2247def80902c06aa5018a92a4ae29108d629c82b2519324c96a10fb6cb3aa48",
+    "results/experiments/map_matching_vta08/evaluation.json": "84ad86c7c53f9d64a51e9c238fddc9125ab4b9c4a4ae7e518dc676227b0e36c7",
+    "results/experiments/S3c/evaluation.json": "e3fc4790dadf151588c6a76c78ab8e55ac102c4098ed870c3b7b3868310a9124",
+    "results/metrics/S3c/cumulative_metrics.csv": "81cd4dee68db1dcaf4baeade8d5488cc02625bec7cca8237c186042b8a1ea86c",
+    "results/final_summary/judge_vta08_result.png": "0b28a72c2fbb8a0459f77d348293eac48d1bb331d3931bcf9a0932c583c26e2a",
+    "data/processed/S3c_osm.xml": "6a0c7dcbb3a33bd7fcda4dedf463347ba965fa8ac9dd1ec8c851b9c24ef4078a"
+  },
+  "locked_blackouts": {
+    "Vta08": {
+      "start_index": 916,
+      "end_index_inclusive": 1116,
+      "start_time_s": 91.6,
+      "end_time_s": 111.6,
+      "duration_s": 20.0,
+      "reference_distance_m": 141.99487583681722,
+      "pre_map_drift_percent": 20.965753702110888,
+      "post_map_drift_percent": 11.145912858940527
+    },
+    "S3c": {
+      "start_index": 20673,
+      "end_index_inclusive": 20873,
+      "start_time_s": 2067.299,
+      "end_time_s": 2087.299,
+      "duration_s": 20.0,
+      "reference_distance_m": 228.33810420280503,
+      "pre_map_drift_percent": 106.2014432355735,
+      "post_map_drift_percent": 93.52430836989063
+    }
+  },
+  "comparison_rule": "Use the exact intervals and initialization protocol above. Report pre-map and post-map endpoint error, RMSE, mean error, maximum error, reference distance and drift percentage. Do not tune against either locked interval."
+}

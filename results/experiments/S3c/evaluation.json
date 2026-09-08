@@ -1,0 +1,244 @@
+{
+  "experiment": {
+    "session": "S3c",
+    "role": "blind_cross_driver_confidence_test",
+    "selection_policy": "earliest qualifying interval after stationary calibration; selected before observing navigation errors",
+    "oracle_initialization": "VBOX speed and heading are used only at blackout entry; VBOX is reference-only afterward",
+    "parameter_policy": "Vta08 IEKF, CNN, alignment, and HMM settings are reused without S3c error-based tuning",
+    "blackout": {
+      "start_index": 20673,
+      "end_index_inclusive": 20873,
+      "start_time_s": 2067.299,
+      "end_time_s": 2087.299,
+      "duration_s": 20.0
+    }
+  },
+  "dataset": {
+    "samples": 37183,
+    "duration_s": 3718.199,
+    "sampling_hz": 10.000000000009095,
+    "timestamp_resets": 0,
+    "phone_speed_unit_assessment": {
+      "assessment": "m/s despite Kmh label",
+      "mae_if_raw_is_mps": 1.457053091634401,
+      "mae_if_raw_is_kmh": 9.52252460568881
+    }
+  },
+  "calibration": {
+    "end_index_exclusive": 20447,
+    "gyro_bias_body_rps": [
+      -0.0002674242424242423,
+      0.0002944444444444442,
+      1.0858585858585867e-05
+    ],
+    "accel_bias_body_mps2": [
+      0.15996843434343447,
+      0.11321691919191913,
+      0.04253181818181868
+    ],
+    "tilt_alignment": {
+      "start_index": 148,
+      "end_index_exclusive": 449,
+      "start_time_s": 14.799,
+      "end_time_s": 44.799,
+      "duration_s": 30.0,
+      "roll_deg": 0.004827408961995659,
+      "pitch_deg": -0.0010307013128361513,
+      "mean_gravity_imu_mps2": [
+        -0.00017641196013289072,
+        -0.0008262458471760788,
+        9.80658571428565
+      ],
+      "mean_gyro_imu_rps": [
+        -0.0032206156246853924,
+        0.013518844592100409,
+        -8.926390147320399e-05
+      ],
+      "yaw_rate_rms_rps": 0.027647332182269755,
+      "rotation_car_to_imu": [
+        [
+          0.9999999998381955,
+          -1.515659535797163e-09,
+          -1.798913144879837e-05
+        ],
+        [
+          0.0,
+          0.9999999964506165,
+          -8.42541806274226e-05
+        ],
+        [
+          1.7989131512648695e-05,
+          8.42541806137899e-05,
+          0.9999999962888121
+        ]
+      ]
+    },
+    "yaw_alignment": {
+      "start_index": 20635,
+      "end_index_exclusive": 20656,
+      "start_time_s": 2063.5,
+      "end_time_s": 2065.5,
+      "duration_s": 2.0,
+      "yaw_deg": 127.41122107611791,
+      "mean_horizontal_acceleration_imu_mps2": [
+        -0.7230970057720059,
+        0.9453878427128428
+      ],
+      "speed_start_mps": 1.3869444444444445,
+      "speed_end_mps": 4.5311111111111115,
+      "speed_gain_mps": 3.144166666666667,
+      "displacement_m": 6.914231712540157,
+      "displacement_course_deg": 340.72106277456624,
+      "mean_gps_heading_deg": 340.2691670245375,
+      "course_heading_difference_deg": 0.4518957500287115,
+      "yaw_rate_rms_rps": 0.016256132082097488,
+      "phone_orientation_pitch_median_deg": -85.97,
+      "phone_orientation_near_gimbal_lock": true,
+      "rotation_car_to_imu": [
+        [
+          -0.6075314098879939,
+          -0.7942956502075411,
+          7.78516918927961e-05
+        ],
+        [
+          0.7942956538190912,
+          -0.607531409033815,
+          3.68983722257452e-05
+        ],
+        [
+          1.7989131512648695e-05,
+          8.42541806137899e-05,
+          0.9999999962888121
+        ]
+      ]
+    },
+    "pre_blackout_leakage_check": true
+  },
+  "model": {
+    "checkpoint": "results/models/adapter_cnn_v1.pt",
+    "parameter_count": 10411,
+    "training_session": "Vta2",
+    "validation_session": "Vta16",
+    "S3c_seen_during_training_or_selection": false
+  },
+  "cumulative_metrics": [
+    {
+      "final_position_error_m": 360.40648650622,
+      "position_rmse_m": 196.17835562181452,
+      "mean_position_error_m": 161.92730540655072,
+      "maximum_position_error_m": 360.40648650622,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 157.83895892650256,
+      "method": "step1_plain_strapdown",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 377.356781303475,
+      "position_rmse_m": 140.1799316678173,
+      "mean_position_error_m": 108.3664918644722,
+      "maximum_position_error_m": 377.356781303475,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 165.26229059356416,
+      "method": "step2_fixed_iekf_nhc",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 377.1304231820027,
+      "position_rmse_m": 140.10125252314324,
+      "mean_position_error_m": 108.3158972517602,
+      "maximum_position_error_m": 377.1304231820027,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 165.16315772116752,
+      "method": "step3_tilt_aligned_iekf",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 323.01182986695915,
+      "position_rmse_m": 184.59939011536164,
+      "mean_position_error_m": 153.99458086896175,
+      "maximum_position_error_m": 323.01182986695915,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 141.4620792244412,
+      "method": "step3b_causal_yaw_aligned_iekf",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 242.49836212012667,
+      "position_rmse_m": 131.4337804796694,
+      "mean_position_error_m": 109.82062676808927,
+      "maximum_position_error_m": 242.49836212012667,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 106.2014432355735,
+      "method": "step4_cnn_adapted_iekf",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 242.49836212012667,
+      "position_rmse_m": 131.4337804796694,
+      "mean_position_error_m": 109.82062676808927,
+      "maximum_position_error_m": 242.49836212012667,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 106.2014432355735,
+      "method": "step5_gnss_suppressed_during_blackout",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    },
+    {
+      "final_position_error_m": 213.5516327005936,
+      "position_rmse_m": 132.10734185935758,
+      "mean_position_error_m": 108.72058391096816,
+      "maximum_position_error_m": 241.19481748007334,
+      "distance_travelled_m": 228.33810420280503,
+      "drift_percent": 93.52430836989063,
+      "method": "step6_osm_hmm_map_matching",
+      "blackout_start_time_s": 2067.299,
+      "blackout_end_time_s": 2087.299,
+      "blackout_duration_s": 20.0,
+      "samples": 201
+    }
+  ],
+  "step5_interpretation": "GNSS is unavailable by experiment definition, so Step 5 equals Step 4 inside the locked blackout.",
+  "map_matching": {
+    "status": "complete",
+    "osm_xml": "data/processed/S3c_osm.xml",
+    "drivable_segments": 1118,
+    "matcher_parameters": {
+      "candidate_count": 12,
+      "maximum_candidate_distance_m": 120.0,
+      "distance_sigma_m": 18.0,
+      "heading_sigma_deg": 25.0,
+      "transition_beta_m": 12.0,
+      "transition_heading_sigma_deg": 30.0,
+      "road_turn_sigma_deg": 25.0,
+      "way_change_penalty": 12.0,
+      "heading_smoothing_half_window": 20,
+      "window_size": 50
+    },
+    "mean_snap_distance_m": 22.412364750118776,
+    "maximum_snap_distance_m": 65.21700597832623,
+    "unique_segments": 16,
+    "unique_ways": 7,
+    "change_from_step5": {
+      "final_position_error_m": -28.946729419533085,
+      "position_rmse_m": 0.6735613796881808,
+      "drift_percentage_points": -12.677134865682874
+    }
+  }
+}

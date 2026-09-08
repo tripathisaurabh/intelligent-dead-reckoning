@@ -1,0 +1,88 @@
+{
+  "baseline": "Baseline v1",
+  "diagnostic_only": "No parameters were tuned from either locked interval.",
+  "sessions": {
+    "Vta08": {
+      "session": "Vta08",
+      "map_matching": "disabled",
+      "blackout": {
+        "start_index": 916,
+        "end_index_inclusive": 1116,
+        "start_time_s": 91.6,
+        "end_time_s": 111.6,
+        "duration_s": 20.0
+      },
+      "threshold_definition": {
+        "persistence_s": 1.0,
+        "speed_absolute_error_mps": 2.0,
+        "heading_absolute_error_deg": 10.0,
+        "position_error_m": 5.0
+      },
+      "first_sustained_threshold_crossing_s": {
+        "speed": 1.0,
+        "heading": 4.200000000000003,
+        "position": 2.5
+      },
+      "first_failure": "speed",
+      "metrics": {
+        "speed_mae_mps": 3.4366585838908077,
+        "speed_final_error_mps": 10.689054135620284,
+        "distance_final_error_m": 115.38312963654803,
+        "heading_mae_deg": 24.584753419538774,
+        "heading_final_error_deg": -22.695270127494723,
+        "position_final_error_m": 29.770279649678848,
+        "position_rmse_m": 27.84531079049875
+      },
+      "corrected_axis_independent_forward_baseline": {
+        "definition": "Hold the trusted blackout-entry speed constant; no unsupported gyro-axis or acceleration projection is used.",
+        "speed_mae_mps": 2.052280265339967,
+        "speed_rmse_mps": 2.381861388315158,
+        "final_speed_error_mps": -3.009999999999999,
+        "estimated_distance_m": 100.77777777777794,
+        "reference_distance_m": 141.99487583681716,
+        "final_distance_error_m": -41.217098059039216
+      }
+    },
+    "S3c": {
+      "session": "S3c",
+      "map_matching": "disabled",
+      "blackout": {
+        "start_index": 20673,
+        "end_index_inclusive": 20873,
+        "start_time_s": 2067.299,
+        "end_time_s": 2087.299,
+        "duration_s": 20.0
+      },
+      "threshold_definition": {
+        "persistence_s": 1.0,
+        "speed_absolute_error_mps": 2.0,
+        "heading_absolute_error_deg": 10.0,
+        "position_error_m": 5.0
+      },
+      "first_sustained_threshold_crossing_s": {
+        "speed": 0.6999999999998181,
+        "heading": 0.40099999999983993,
+        "position": 1.599999999999909
+      },
+      "first_failure": "direction",
+      "metrics": {
+        "speed_mae_mps": 20.566874299349443,
+        "speed_final_error_mps": 35.49310165645537,
+        "distance_final_error_m": 331.4150494944643,
+        "heading_mae_deg": 116.57257511351966,
+        "heading_final_error_deg": -107.36883975947457,
+        "position_final_error_m": 242.49836212012667,
+        "position_rmse_m": 131.4337804796694
+      },
+      "corrected_axis_independent_forward_baseline": {
+        "definition": "Hold the trusted blackout-entry speed constant; no unsupported gyro-axis or acceleration projection is used.",
+        "speed_mae_mps": 6.345939745715864,
+        "speed_rmse_mps": 6.955182455593996,
+        "final_speed_error_mps": -10.323888888888888,
+        "estimated_distance_m": 100.20000000000017,
+        "reference_distance_m": 228.3381042028049,
+        "final_distance_error_m": -128.13810420280475
+      }
+    }
+  }
+}

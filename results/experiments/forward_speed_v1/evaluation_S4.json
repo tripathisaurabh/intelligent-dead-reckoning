@@ -1,0 +1,48 @@
+{
+  "model": "ForwardSpeedGRU with Gaussian mean and standard deviation",
+  "checkpoint": "results/models/forward_speed_v1.pt",
+  "checkpoint_sha256": "78d106a80e5a874b62d5062ca802b2dea2beceb9ec1088000ccc5a4acba3f335",
+  "data_split": {
+    "train": [
+      "Vta2",
+      "Vta16",
+      "S3c"
+    ],
+    "validation": "Vta08",
+    "evaluated_split": "fresh_test",
+    "evaluated_session": "S4",
+    "fresh_test_influenced_training_or_tuning": false
+  },
+  "locked_fresh_interval": {
+    "selection": "first qualifying 20-second interval; chosen before inference",
+    "start_index": 348,
+    "end_index_inclusive": 548,
+    "start_time_s": 34.8,
+    "end_time_s": 54.8,
+    "duration_s": 20.0
+  },
+  "corrected_safe_baseline": {
+    "definition": "Hold the last trusted GNSS speed constant; avoids the unsupported gyroscope body-axis and acceleration projection assumptions found by the audit.",
+    "speed_mae_mps": 1.6102072968490877,
+    "speed_rmse_mps": 1.9702791551776202,
+    "final_speed_error_mps": -2.0311111111111115,
+    "estimated_distance_m": 62.33888888888886,
+    "reference_distance_m": 75.44375666666664,
+    "final_distance_error_m": -13.104867777777784
+  },
+  "learned_forward_speed": {
+    "speed_mae_mps": 2.935576477530518,
+    "speed_rmse_mps": 3.2979295577333834,
+    "final_speed_error_mps": 3.5174794175889756,
+    "estimated_distance_m": 134.10576587057116,
+    "reference_distance_m": 75.44375666666664,
+    "final_distance_error_m": 58.66200920390452,
+    "mean_predicted_std_mps": 1.9201107025146484,
+    "empirical_95_percent_interval_coverage": 0.7263681592039801
+  },
+  "change_from_safe_baseline": {
+    "speed_mae_mps": 1.3253691806814303,
+    "speed_rmse_mps": 1.3276504025557632,
+    "absolute_final_distance_error_m": 45.557141426126734
+  }
+}

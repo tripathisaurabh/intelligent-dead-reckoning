@@ -22,3 +22,8 @@ def test_sampling_stats_reports_reset_and_gap():
 def test_phone_satellite_count_parser_uses_in_range_value():
     result = parse_satellite_count(pd.Series(["24 / 24", " 9 / 17", "12"]))
     assert np.allclose(result, [24.0, 9.0, 12.0])
+
+
+def test_phone_satellite_count_parser_recovers_spreadsheet_dates():
+    result = parse_satellite_count(pd.Series(["May-23", "Nov-17"]))
+    assert np.allclose(result, [5.0, 11.0])
