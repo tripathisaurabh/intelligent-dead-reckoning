@@ -1,0 +1,32 @@
+{
+  "session": "Vta08",
+  "map_matching": "disabled",
+  "blackout": {
+    "start_index": 916,
+    "end_index_inclusive": 1116,
+    "start_time_s": 91.6,
+    "end_time_s": 111.6,
+    "duration_s": 20.0
+  },
+  "threshold_definition": {
+    "persistence_s": 1.0,
+    "speed_absolute_error_mps": 2.0,
+    "heading_absolute_error_deg": 10.0,
+    "position_error_m": 5.0
+  },
+  "first_sustained_threshold_crossing_s": {
+    "speed": 1.0,
+    "heading": 4.200000000000003,
+    "position": 2.5
+  },
+  "first_failure": "speed",
+  "metrics": {
+    "speed_mae_mps": 3.4366585838908077,
+    "speed_final_error_mps": 10.689054135620284,
+    "distance_final_error_m": 115.38312963654803,
+    "heading_mae_deg": 24.584753419538774,
+    "heading_final_error_deg": -22.695270127494723,
+    "position_final_error_m": 29.770279649678848,
+    "position_rmse_m": 27.84531079049875
+  }
+}

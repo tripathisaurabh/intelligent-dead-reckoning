@@ -1,0 +1,158 @@
+{
+  "baseline": "Baseline v1",
+  "sessions": {
+    "Vta08": {
+      "sampling": {
+        "median_dt_s": 0.09999999999999432,
+        "estimated_hz": 10.000000000000568,
+        "timestamp_resets": 0
+      },
+      "units": {
+        "reference_speed_conversion": "Velocity (km/hr) divided by 3.6",
+        "phone_speed_assessment": {
+          "assessment": "m/s despite Kmh label",
+          "mae_if_raw_is_mps": 1.3300887080570625,
+          "mae_if_raw_is_kmh": 8.903223930078362
+        },
+        "gyro": "rad/s",
+        "accelerometer": "m/s^2 including gravity",
+        "heading": "degrees clockwise from north",
+        "local_frame": "ENU metres"
+      },
+      "axes": {
+        "source_gyro_order": "yaw, pitch, roll",
+        "filter_gyro_order": "x=roll, y=pitch, z=yaw",
+        "correlation_with_vbox_yaw_rate": {
+          "x": 0.028009329947142638,
+          "y": 0.24900482829572645,
+          "z": -0.02015611734545269
+        },
+        "strongest_absolute_correlation_axis": "y"
+      },
+      "gravity_and_bias": {
+        "stationary_samples_checked": 755,
+        "linear_acceleration_after_gravity_and_bias_rms_mps2": 0.5484049439161643,
+        "mean_navigation_acceleration_at_stationary_mps2": [
+          0.1045063394023828,
+          0.13898734085632294,
+          -0.010289842931099358
+        ],
+        "mean_navigation_acceleration_norm_mps2": 0.17419798150708987
+      },
+      "mounting_rotation": {
+        "determinant": 1.0000000000000002,
+        "orthogonality_max_abs_error": 2.220446049250313e-16
+      },
+      "initialization": {
+        "position_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_mps": 5.038888888888889,
+        "bearing_deg": 14.333,
+        "velocity_enu_mps": [
+          1.2474126435570363,
+          4.8820449538346065,
+          0.0
+        ],
+        "source": "oracle VBOX at the first blackout sample"
+      },
+      "mounting_yaw_source_check": {
+        "current_selector_inputs": "VBOX reference position, speed and heading",
+        "window_indices": [
+          895,
+          915
+        ],
+        "phone_unique_position_fixes_in_window": 2,
+        "phone_displacement_in_window_m": 10.165279138681079,
+        "phone_speed_start_mps": 0.93,
+        "phone_speed_end_mps": 4.24,
+        "deployable_from_phone_gnss_in_same_window": true
+      }
+    },
+    "S3c": {
+      "sampling": {
+        "median_dt_s": 0.09999999999990905,
+        "estimated_hz": 10.000000000009095,
+        "timestamp_resets": 0
+      },
+      "units": {
+        "reference_speed_conversion": "Velocity (km/hr) divided by 3.6",
+        "phone_speed_assessment": {
+          "assessment": "m/s despite Kmh label",
+          "mae_if_raw_is_mps": 1.457053091634401,
+          "mae_if_raw_is_kmh": 9.52252460568881
+        },
+        "gyro": "rad/s",
+        "accelerometer": "m/s^2 including gravity",
+        "heading": "degrees clockwise from north",
+        "local_frame": "ENU metres"
+      },
+      "axes": {
+        "source_gyro_order": "yaw, pitch, roll",
+        "filter_gyro_order": "x=roll, y=pitch, z=yaw",
+        "correlation_with_vbox_yaw_rate": {
+          "x": 0.3024827692239244,
+          "y": 0.9529080905322802,
+          "z": 0.058369685283902455
+        },
+        "strongest_absolute_correlation_axis": "y"
+      },
+      "gravity_and_bias": {
+        "stationary_samples_checked": 2887,
+        "linear_acceleration_after_gravity_and_bias_rms_mps2": 0.648908720911431,
+        "mean_navigation_acceleration_at_stationary_mps2": [
+          -0.14310208853445047,
+          -0.23533664905583387,
+          -0.007682129853655795
+        ],
+        "mean_navigation_acceleration_norm_mps2": 0.27553686005839373
+      },
+      "mounting_rotation": {
+        "determinant": 1.0000000000000002,
+        "orthogonality_max_abs_error": 4.255860032860949e-17
+      },
+      "initialization": {
+        "position_enu_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed_mps": 5.010000000000001,
+        "bearing_deg": 305.692,
+        "velocity_enu_mps": [
+          -4.0689466334631055,
+          2.922973365261694,
+          0.0
+        ],
+        "source": "oracle VBOX at the first blackout sample"
+      },
+      "mounting_yaw_source_check": {
+        "current_selector_inputs": "VBOX reference position, speed and heading",
+        "window_indices": [
+          20635,
+          20655
+        ],
+        "phone_unique_position_fixes_in_window": 1,
+        "phone_displacement_in_window_m": 0.0,
+        "phone_speed_start_mps": 0.0,
+        "phone_speed_end_mps": 0.0,
+        "deployable_from_phone_gnss_in_same_window": false
+      }
+    }
+  },
+  "training_runtime_filter_agreement": {
+    "test": "tests/test_adaptive_iekf.py::test_nonzero_adapter_matches_differentiable_training_filter",
+    "coverage": "position, velocity, rotation, both biases and covariance after non-zero learned corrections"
+  },
+  "confirmed_findings": [
+    "The three gyroscope columns are semantic yaw/pitch/roll rates, not documented Cartesian x/y/z rates. Reordering them as [roll, pitch, yaw] is therefore an unsupported body-frame assumption. The weak z-channel/VBOX agreement and strong y-channel agreement on S3c confirm that the full 3-D mechanization cannot be called axis-validated.",
+    "Reference speed is correctly converted from km/h to m/s; phone speed is already m/s despite its label.",
+    "Accelerometer samples include gravity; the propagation subtracts the estimated residual bias and adds ENU gravity once.",
+    "Car-to-IMU rotations are proper orthonormal rotations and are composed consistently at initialization.",
+    "Training and runtime adaptive IEKF equations agree numerically for non-zero adapter outputs.",
+    "The baseline mounting-yaw window is selected with VBOX reference signals, not deployable phone GNSS. This is an evaluation dependency and must not be described as phone-only calibration.",
+    "Oracle VBOX speed and heading initialize both locked blackouts; this intentionally measures outage drift, not cold-start accuracy."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "session": "S3c",
+  "map_matching": "disabled",
+  "blackout": {
+    "start_index": 20673,
+    "end_index_inclusive": 20873,
+    "start_time_s": 2067.299,
+    "end_time_s": 2087.299,
+    "duration_s": 20.0
+  },
+  "threshold_definition": {
+    "persistence_s": 1.0,
+    "speed_absolute_error_mps": 2.0,
+    "heading_absolute_error_deg": 10.0,
+    "position_error_m": 5.0
+  },
+  "first_sustained_threshold_crossing_s": {
+    "speed": 0.6999999999998181,
+    "heading": 0.40099999999983993,
+    "position": 1.599999999999909
+  },
+  "first_failure": "direction",
+  "metrics": {
+    "speed_mae_mps": 20.566874299349443,
+    "speed_final_error_mps": 35.49310165645537,
+    "distance_final_error_m": 331.4150494944643,
+    "heading_mae_deg": 116.57257511351966,
+    "heading_final_error_deg": -107.36883975947457,
+    "position_final_error_m": 242.49836212012667,
+    "position_rmse_m": 131.4337804796694
+  }
+}

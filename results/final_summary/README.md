@@ -117,9 +117,11 @@ attitude remain filter states.
 ### 3. Automatic mounting alignment
 
 - Estimated pitch and roll from gravity during a detected low-yaw-rate window.
-- Added a causal, pre-blackout GPS-heading/straight-acceleration window for mounting yaw.
+- Added a causal, pre-blackout VBOX-assisted heading/straight-acceleration window for mounting yaw.
 - The Vta08 mounting-yaw estimate was **+13.537°**.
 - The alignment uses no samples from inside or after the evaluated blackout.
+- Audit note: Vta08 has usable phone GNSS in the same window, but S3c does not. The current
+  implementation must not be described as deployable phone-only mounting calibration.
 
 ### 4. Learned dilated CNN adapter
 
@@ -240,6 +242,19 @@ remains poor. Road constraints cannot recover unobserved longitudinal progress b
 - Added automated tests covering preprocessing, coordinate frames, INS/IEKF operations, alignment,
   learned adapter behavior, GNSS gating, arbitration, evaluation, and map matching.
 
+## Post-baseline diagnostic and forward-speed experiment
+
+The map-free diagnostic shows that Vta08 is speed-led (persistent speed error at 1.0 s, heading at
+4.2 s). S3c fails in both: heading at 0.401 s and speed at 0.700 s. See the
+[diagnostic report](../../docs/baseline_v1_diagnostics.md) and
+[calculation audit](../../docs/baseline_v1_calculation_audit.md).
+
+A causal GRU with learned Gaussian uncertainty was then tested for forward speed. It improved the
+S1 development interval, but failed untouched S4: speed MAE was **2.94 m/s**, versus **1.61 m/s**
+for holding the last trusted speed; final distance error was **+58.66 m**, versus **-13.10 m**.
+Its nominal 95% interval covered only **72.6%** of S4 samples. It is therefore **not approved for
+integration**. See the [forward-speed report](../../docs/forward_speed_v1.md).
+
 ## Limitations and claims we must not make
 
 - The less-than-10% target has not been reached: Vta08 is 11.146%.
@@ -247,6 +262,8 @@ remains poor. Road constraints cannot recover unobserved longitudinal progress b
 - The CNN is a dilated covariance/bias adapter, not the final requested CNN-GRU direct-speed model.
 - The model is still a PyTorch checkpoint, not an INT8 TensorFlow Lite mobile model.
 - Automated Zero-Velocity Updates are not implemented.
+- The smartphone gyroscope columns are semantic yaw/pitch/roll rates, not documented Cartesian
+  body x/y/z rates. The current 3-D reordering is an unsupported assumption and failed the audit.
 - Conditional neural inference based on degraded GNSS is not implemented on a phone.
 - The Android sensor pipeline, map UI, power measurements, and real-time road tests remain open.
 - The current experiments do not prove lane-level accuracy across drivers, devices, or routes.
@@ -287,5 +304,5 @@ and Android integration.
 
 ## Verification status
 
-At the time this summary was prepared, the repository test suite contained **56 passing tests**.
+At the time this summary was prepared, the repository test suite contained **59 passing tests**.
 All metrics in this report come from committed experiment artifacts; none are fabricated.

@@ -1,0 +1,47 @@
+experiment:
+  name: forward_speed_v1
+  sequence_samples: 201
+  seed: 270
+  train_windows_per_session: 256
+  validation_windows: 128
+  minimum_start_speed_mps: 3.0
+  minimum_moving_fraction: 0.80
+  train:
+    - name: Vta2
+      smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta02/S-Vta2.csv"
+      reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta02/V-vta2.csv"
+    - name: Vta16
+      smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/S-Vta16.csv"
+      reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta16/V-vta16.csv"
+    - name: S3c
+      smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S3c/S-S3c.csv"
+      reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S3c/V-S3c.csv"
+  validation:
+    name: Vta08
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/S-Vta8.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/Vta (Driver E)/Vta08/V-vta8.csv"
+  development_test:
+    name: S1
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S1/S-S1.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S1/V-S1.csv"
+  fresh_test:
+    name: S4
+    smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S4/S-S4.csv"
+    reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S4/V-S4.csv"
+
+model:
+  input_channels: 8
+  hidden_size: 32
+  layers: 2
+
+training:
+  epochs: 12
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 1.0e-5
+  gradient_clip_norm: 5.0
+
+outputs:
+  model: results/models/forward_speed_v1.pt
+  experiment_dir: results/experiments/forward_speed_v1
+  plots_dir: results/plots/forward_speed_v1
