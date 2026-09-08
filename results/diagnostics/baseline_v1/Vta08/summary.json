@@ -28,5 +28,14 @@
     "heading_final_error_deg": -22.695270127494723,
     "position_final_error_m": 29.770279649678848,
     "position_rmse_m": 27.84531079049875
+  },
+  "corrected_axis_independent_forward_baseline": {
+    "definition": "Hold the trusted blackout-entry speed constant; no unsupported gyro-axis or acceleration projection is used.",
+    "speed_mae_mps": 2.052280265339967,
+    "speed_rmse_mps": 2.381861388315158,
+    "final_speed_error_mps": -3.009999999999999,
+    "estimated_distance_m": 100.77777777777794,
+    "reference_distance_m": 141.99487583681716,
+    "final_distance_error_m": -41.217098059039216
   }
 }

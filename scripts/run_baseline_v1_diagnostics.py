@@ -81,6 +81,11 @@ def _diagnose(name: str, drive, start: int, end: int, result, output_root: Path)
     )
     speed_error = estimated_speed - reference_speed
     distance_error = estimated_distance - reference_distance
+    safe_speed = np.full_like(reference_speed, reference_speed[0])
+    safe_distance = np.r_[
+        0.0,
+        np.cumsum(0.5 * (safe_speed[1:] + safe_speed[:-1]) * np.diff(time)),
+    ]
 
     # These thresholds are diagnostic markers, not accuracy claims. Requiring a
     # full second avoids declaring failure from one noisy reference sample.
@@ -171,6 +176,15 @@ def _diagnose(name: str, drive, start: int, end: int, result, output_root: Path)
             "heading_final_error_deg": float(heading_error[-1]),
             "position_final_error_m": float(position_error[-1]),
             "position_rmse_m": float(np.sqrt(np.mean(position_error**2))),
+        },
+        "corrected_axis_independent_forward_baseline": {
+            "definition": "Hold the trusted blackout-entry speed constant; no unsupported gyro-axis or acceleration projection is used.",
+            "speed_mae_mps": float(np.mean(np.abs(safe_speed - reference_speed))),
+            "speed_rmse_mps": float(np.sqrt(np.mean((safe_speed - reference_speed) ** 2))),
+            "final_speed_error_mps": float(safe_speed[-1] - reference_speed[-1]),
+            "estimated_distance_m": float(safe_distance[-1]),
+            "reference_distance_m": float(reference_distance[-1]),
+            "final_distance_error_m": float(safe_distance[-1] - reference_distance[-1]),
         },
     }
     (output_dir / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")

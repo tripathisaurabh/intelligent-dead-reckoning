@@ -23,4 +23,10 @@ The detailed measurements are in [baseline_v1_calculations.json](../results/audi
 3. Reports now call the yaw calibration **VBOX-assisted reference alignment**, not phone-only GPS calibration.
 4. The unsupported gyroscope-axis assumption is explicitly failed rather than marked correct.
 
+The exact Vta08 and S3c intervals were also rerun with an axis-independent forward baseline that
+holds the trusted entry speed constant. On Vta08 its speed MAE is 2.05 m/s and final distance error
+is -41.22 m; on S3c its speed MAE is 6.35 m/s and final distance error is -128.14 m. These are not
+complete navigation solutions, but they are the corrected comparison for forward motion because
+they make neither the invalid gyro-body mapping nor an unverified accelerometer-axis projection.
+
 It would be scientifically wrong to choose a new gyro permutation from Vta08 or S3c endpoint error and call that a fix. The correct next implementation is a planar vehicle model that calibrates its yaw channel/sign from GNSS-aided training data, plus an independently evaluated forward-speed estimator. Until that is validated, Step 6's 11.15% Vta08 result remains a Baseline v1 pipeline result, not evidence that the underlying inertial trajectory is correct.
