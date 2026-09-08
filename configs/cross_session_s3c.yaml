@@ -1,0 +1,24 @@
+experiment:
+  name: S3c
+  role: blind_cross_driver_confidence_test
+  smartphone_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S3c/S-S3c.csv"
+  reference_csv: "data/raw/IO-VNBD/Synchronised V abd S datasets/Categorised IOVNB Dataset/S (Driver A)/S3c/V-S3c.csv"
+  blackout_duration_s: 20.0
+  minimum_speed_mps: 5.0
+  required_moving_fraction: 0.90
+  maximum_gap_s: 0.15
+  context_before_s: 3.2
+
+inputs:
+  adapter_config: configs/adapter_cnn.yaml
+  iekf_config: configs/iekf_vta08.yaml
+  alignment_config: configs/alignment_vta08.yaml
+  yaw_alignment_config: configs/alignment_yaw_vta08.yaml
+  matcher_config: configs/map_matching_vta08.yaml
+  model: results/models/adapter_cnn_v1.pt
+  osm_xml: data/processed/S3c_osm.xml
+
+outputs:
+  experiment_dir: results/experiments/S3c
+  metrics_dir: results/metrics/S3c
+  plots_dir: results/plots/S3c

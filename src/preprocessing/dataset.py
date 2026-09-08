@@ -45,9 +45,32 @@ def _numeric(df: pd.DataFrame, column: str) -> np.ndarray:
 
 
 def parse_satellite_count(values: pd.Series) -> np.ndarray:
-    """Parse phone values such as ``"24 / 24"`` into satellites in range."""
-    extracted = values.astype(str).str.extract(r"^\s*(\d+)", expand=False)
-    counts = pd.to_numeric(extracted, errors="coerce").to_numpy(dtype=float)
+    """Parse the first (in-range) satellite count from the phone export.
+
+    Some IO-VNBD CSVs were passed through spreadsheet software which changed
+    values such as ``"5 / 23"`` into ``"May-23"``. Recovering the month number
+    preserves the intended first count while still rejecting unknown strings.
+    """
+    text = values.astype(str).str.strip()
+    extracted = text.str.extract(r"^(\d+)", expand=False)
+    counts = pd.to_numeric(extracted, errors="coerce")
+    month = text.str.extract(r"^([A-Za-z]{3})-\d+$", expand=False).str.lower().map(
+        {
+            "jan": 1,
+            "feb": 2,
+            "mar": 3,
+            "apr": 4,
+            "may": 5,
+            "jun": 6,
+            "jul": 7,
+            "aug": 8,
+            "sep": 9,
+            "oct": 10,
+            "nov": 11,
+            "dec": 12,
+        }
+    )
+    counts = counts.fillna(month).to_numpy(dtype=float)
     if not np.isfinite(counts).all():
         bad = np.flatnonzero(~np.isfinite(counts))
         raise ValueError(f"Invalid satellite counts at rows {bad[:10].tolist()}")

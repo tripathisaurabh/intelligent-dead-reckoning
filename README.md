@@ -2,6 +2,12 @@
 
 Smartphone-based GNSS-denied navigation system for SIH.
 
+## Quick access
+
+For the complete implemented architecture, techniques, cumulative comparisons, final plots,
+achievements, limitations, and evidence links, open the
+[Final Prototype Summary](results/final_summary/README.md).
+
 The aim of this project is to keep estimating a vehicle's position, velocity and heading when GNSS/GPS becomes weak or completely unavailable, using only the sensors available inside a smartphone.
 
 The system is being built as a hybrid navigation engine using smartphone IMU data, inertial navigation, GNSS/INS fusion, machine learning, vehicle-motion constraints and road-network map matching.
